@@ -36,7 +36,7 @@ msg['subject'] = 'hello world'
 try:
     server = smtplib.SMTP()
     server.connect('smtp.qq.com')
-    server.login('317878410','gloryliu198710')#XXX为用户名，XXXXX为密码
+    server.login('123','123')#XXX为用户名，XXXXX为密码
     server.sendmail(msg['from'], msg['to'],msg.as_string())
     server.quit()
     print '发送成功'

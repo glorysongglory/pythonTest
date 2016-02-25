@@ -11,10 +11,10 @@ Created on 2016年2月19日
 #========================================== 
 import smtplib  
 from email.mime.text import MIMEText  
-mailto_list=["317878410@qq.com"] 
+mailto_list=["123@qq.com"] 
 mail_host="smtp.qq.com"  #设置服务器
-mail_user="317878410"    #用户名
-mail_pass="gloryliu198710"   #口令 
+mail_user="123"    #用户名
+mail_pass="123"   #口令 
 mail_postfix="qq.com"  #发件箱的后缀
   
 def send_mail(to_list,sub,content):  #to_list：收件人；sub：主题；content：邮件内容

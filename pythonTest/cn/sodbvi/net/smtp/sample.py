@@ -14,13 +14,13 @@ import smtplib
 #========================================== 
 # 要发给谁
 #========================================== 
-mailto_list=["317878410@qq.com"] 
+mailto_list=["123@qq.com"] 
 #========================================== 
 # 设置服务器，用户名、口令以及邮箱的后缀 
 #========================================== 
 mail_host="smtp.qq.com"
-mail_user="317878410"
-mail_pass="gloryliu198710"
+mail_user="123"
+mail_pass="123"
 mail_postfix="qq.com"
 #========================================== 
 # 发送邮件 
@@ -30,7 +30,7 @@ def send_mail(to_list,sub,content):
   to_list:发给谁 
   sub:主题 
   content:内容 
-  send_mail("317878410@qq.com","sub","content") 
+  send_mail("123@qq.com","sub","content") 
   '''
   me=mail_user+"<"+mail_user+"@"+mail_postfix+">"
   msg = MIMEText(content) 
