@@ -8,7 +8,7 @@ import cx_Oracle
 import os
 
 
-db_conn = cx_Oracle.connect("oem/oem@202.173.9.77/oragbk")
+db_conn = cx_Oracle.connect("test/test@127.0.0.1/oragbk")
 curs=db_conn.cursor ()
 sql='select * from ai_wallmoney'
 rr=curs.execute (sql)
