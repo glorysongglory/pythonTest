@@ -90,4 +90,3 @@ print(A.transpose())
 print(np.trace(A))
 
 
-
