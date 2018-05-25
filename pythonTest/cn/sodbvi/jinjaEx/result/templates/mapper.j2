@@ -1,0 +1,14 @@
+/**
+ * mybatis映射
+ */
+package {{package}}.mapper;
+
+import com.hi.framework.mapper.SuperMapper;
+import {{package}}.entity.{{name | replace(name | first,name | first| upper,1)}};
+
+/**
+ *  {{des}} 数据库映射
+ */
+public interface {{name | replace(name | first,name | first| upper,1)}}Mapper extends SuperMapper<{{name | replace(name | first,name | first| upper,1)}}> {
+
+}

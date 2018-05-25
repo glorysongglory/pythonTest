@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hi.webapp.hipro.keyword1.mapper.ProKeyword1Mapper">
+    <!-- 映射配置 -->
+    <resultMap id="resultMap" type="com.hi.webapp.hipro.keyword1.entity.ProKeyword1">
+        <result column="ID" property="id"/>
+        <result column="CREATE_DATE" property="createDate"/>
+        <result column="UPDATE_DATE" property="updateDate"/>
+        <result column="DELETE_TAG" property="deleteTag"/>
+        <result column="WALL_ID" property="wallId"/>
+        <result column="ACT_TYPE" property="actType"/>
+        <result column="KEY_WORD" property="keyWord"/>
+    </resultMap>
+    <!-- 条件配置 -->
+    <sql id="queryFilter">
+        <where>
+            <if test="queryId != null">AND ID = #{queryId}</if>
+            <if test="queryCreateDate != null">AND CREATE_DATE = #{queryCreateDate}</if>
+            <if test="queryStartCreateDate != null">AND CREATE_DATE &gt;= #{queryStartCreateDate}</if>
+            <if test="queryEndCreateDate != null">AND CREATE_DATE &lt;= #{queryEndCreateDate}</if>
+            <if test="queryUpdateDate != null">AND UPDATE_DATE = #{queryUpdateDate}</if>
+            <if test="queryStartUpdateDate != null">AND UPDATE_DATE &gt;= #{queryStartUpdateDate}</if>
+            <if test="queryEndUpdateDate != null">AND UPDATE_DATE &lt;= #{queryEndUpdateDate}</if>
+            <if test="queryDeleteTag != null">AND DELETE_TAG = #{queryDeleteTag}</if>
+            <if test="queryWallId != null">AND WALL_ID = #{queryWallId}</if>
+            <if test="queryActType != null">AND ACT_TYPE = #{queryActType}</if>
+            <if test="queryKeyWord != null">AND KEY_WORD = #{queryKeyWord}</if>
+            <if test="queryIdList != null">AND ID IN (<foreach collection="queryIdList" index="index" item="item"
+                                                               separator=",">#{item}</foreach>)
+            </if>
+        </where>
+    </sql>
+    <!-- 更新配置 -->
+    <sql id="setFilter">
+        <set>
+            <if test="updateId != null">ID = #{updateId},</if>
+            <if test="updateCreateDate != null">CREATE_DATE = #{updateCreateDate},</if>
+            <if test="updateUpdateDate != null">UPDATE_DATE = #{updateUpdateDate},</if>
+            <if test="updateDeleteTag != null">DELETE_TAG = #{updateDeleteTag},</if>
+            <if test="updateWallId != null">WALL_ID = #{updateWallId},</if>
+            <if test="updateActType != null">ACT_TYPE = #{updateActType},</if>
+            <if test="updateKeyWord != null">KEY_WORD = #{updateKeyWord},</if>
+        </set>
+    </sql>
+    <!-- =======业务SQL====== -->
+    <!-- 创建配置 -->
+    <insert id="insert" parameterType="com.hi.webapp.hipro.keyword1.entity.ProKeyword1" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO PRO_KEYWORD1
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            ID,
+            CREATE_DATE,
+            UPDATE_DATE,
+            DELETE_TAG,
+            WALL_ID,
+            ACT_TYPE,
+            KEY_WORD,
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            #{  id,jdbcType=ID  },
+            #{  createDate,jdbcType=CREATE_DATE  },
+            #{  updateDate,jdbcType=UPDATE_DATE  },
+            #{  deleteTag,jdbcType=DELETE_TAG  },
+            #{  wallId,jdbcType=WALL_ID  },
+            #{  actType,jdbcType=ACT_TYPE  },
+            #{  keyWord,jdbcType=KEY_WORD  },
+        </trim>
+    </insert>
+    <!-- 删除配置 -->
+    <delete id="delete" parameterType="map">
+        DELETE FROM PRO_KEYWORD1
+        <include refid="queryFilter"/>
+    </delete>
+    <!-- 修改配置 -->
+    <update id="update" parameterType="map">
+        UPDATE PRO_KEYWORD1
+        <include refid="setFilter"/>
+        <include refid="queryFilter"/>
+    </update>
+    <!-- 根据主键id查询 -->
+    <select id="readById" parameterType="long" resultMap="resultMap">
+        SELECT * FROM PRO_KEYWORD1 WHERE ID = #{id}
+    </select>
+    <!-- 查询单条记录配置 -->
+    <select id="read" parameterType="map" resultMap="resultMap">
+        SELECT * FROM PRO_KEYWORD1
+        <include refid="queryFilter"/>
+    </select>
+    <!-- 查询列表配置 -->
+    <select id="list" parameterType="map" resultMap="resultMap">
+        SELECT * FROM PRO_KEYWORD1
+        <include refid="queryFilter"/>
+        <include refid="Public.OrderCriteria"/>
+    </select>
+    <!-- 查询分页配置 -->
+    <select id="page" parameterType="map" resultMap="resultMap">
+        SELECT * FROM PRO_KEYWORD1
+        <include refid="queryFilter"/>
+        <include refid="Public.OrderCriteria"/>
+        <include refid="Public.afterPage"/>
+    </select>
+    <!-- 查询集合大小配置 -->
+    <select id="count" parameterType="map" resultType="long">
+        SELECT COUNT(*) FROM PRO_KEYWORD1
+        <include refid="queryFilter"/>
+    </select>
+</mapper>

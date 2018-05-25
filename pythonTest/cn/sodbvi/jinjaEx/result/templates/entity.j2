@@ -1,0 +1,34 @@
+package {{package}}.entity;
+
+import com.hi.framework.entity.SuperEntity;
+
+/**
+ * {{des}}
+ */
+
+public class {{name | replace(name | first,name | first| upper,1)}} extends SuperEntity {
+    private static final long serialVersionUID = 1L;
+
+{% for field in fieldList if field.getset == 'Y' %}
+    // {{field.des}}
+    private {{field.type}} {{field.name}};
+{% endfor %}
+
+
+{% for field in fieldList  if field.getset == 'Y' %}
+     /**
+     * 获取 {{field.des}}
+     */
+    public {{field.type}} get{{field.name | replace(field.name | first,field.name | first| upper,1)}}() {
+        return {{field.name}};
+    }
+
+    /**
+     * 设置 {{field.des}}
+     */
+    public void set{{field.name | replace(field.name | first,field.name | first| upper,1)}}) {
+        this.{{field.name}} = {{field.name}};
+    }
+{% endfor %}
+
+}
