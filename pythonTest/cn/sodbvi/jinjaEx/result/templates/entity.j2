@@ -26,7 +26,7 @@ public class {{name | replace(name | first,name | first| upper,1)}} extends Supe
     /**
      * 设置 {{field.des}}
      */
-    public void set{{field.name | replace(field.name | first,field.name | first| upper,1)}}) {
+    public void set{{field.name | replace(field.name | first,field.name | first| upper,1)}}({{field.type}} {{field.name}}) {
         this.{{field.name}} = {{field.name}};
     }
 {% endfor %}
