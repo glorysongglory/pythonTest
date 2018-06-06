@@ -4,7 +4,7 @@
   "name": "ProUserWallwxusertrade",
   "uri": "/pro/hxc/prouserwallwxusertrade",
   "des": "关键词表",
-  "table":"PRO_KEYWORD1",
+  "table":"PRO_USER_WALLWXUSERTRADE",
   "fieldList": [
     {
       "name": "id",
