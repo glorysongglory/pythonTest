@@ -1,8 +1,8 @@
 {
-  "package": "com.hi.webapp.hipro.keyword1",
-  "module":"keyword1",
-  "name": "proKeyword1",
-  "uri": "/test/keyword1",
+  "package": "com.hi.webapp.hipro.user",
+  "module":"user",
+  "name": "ProUserWallwxusertrade",
+  "uri": "/pro/hxc/prouserwallwxusertrade",
   "des": "关键词表",
   "table":"PRO_KEYWORD1",
   "fieldList": [
@@ -50,20 +50,28 @@
       "des": "所属活动ID"
     },
     {
-      "name": "actType",
-      "column": "ACT_TYPE",
-      "type": "String",
-      "dbtype": "VARCHAR",
+      "name": "userId",
+      "column": "USER_ID",
+      "type":"long",
+      "dbtype": "BIGINT",
       "getset": "Y",
-      "des": "活动类型"
+      "des": "用户ID"
     },
     {
-      "name": "keyWord",
-      "column": "KEY_WORD",
+      "name": "changeType",
+      "column": "CHANGE_TYPE",
       "type": "String",
       "dbtype": "VARCHAR",
       "getset": "Y",
-      "des": "关键词"
+      "des": "变化类型"
+    },
+    {
+      "name": "changeNumber",
+      "column": "CHANGE_NUMBER",
+      "type":"long",
+      "dbtype": "BIGINT",
+      "getset": "Y",
+      "des": "变化数量"
     }
   ]
 }

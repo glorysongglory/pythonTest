@@ -5,7 +5,7 @@ package {{package}}.service;
 
 import com.hi.webapp.common.service.SuperService;
 import org.springframework.stereotype.Service;
-import {{package}}.entity.ProKeyword;
+import {{package}}.entity.{{name | replace(name | first,name | first| upper,1)}};
 
 @Service
 public class {{name | replace(name | first,name | first| upper,1)}}Service extends SuperService<{{name | replace(name | first,name | first| upper,1)}}> {

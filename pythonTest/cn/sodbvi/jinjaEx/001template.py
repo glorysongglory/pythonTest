@@ -15,9 +15,10 @@ def genCode(jsonStr, dirname, fileName):
     template = env.get_template(dirname + '.j2')
     content = template.render(jsonStr)
     moduleName = jsonStr['module'];
+    name = jsonStr['name'];
     modulePath = workPath + '\\result\\output\\' + moduleName + '\\'
     childPath = modulePath + dirname
-    filePath = childPath + '\\' + moduleName.capitalize() + fileName
+    filePath = childPath + '\\' + name + fileName
     if (not os.path.exists(childPath)):
         os.makedirs(childPath)
 
@@ -32,20 +33,5 @@ def pre(jsonStr):
 
 
 if __name__ == '__main__':
-    jsonStr = {"package": "com.hi.webapp.hipro.keyword1", "module": "keyword1", "name": "proKeyword1",
-               "uri": "/test/keyword1",
-               "des": "关键词表", "table": "PRO_KEYWORD1", "fieldList": [
-            {"name": "id", "column": "ID", "type": "long", "dbtype": "BIGINT", "getset": "N", "startend": "N",
-             "des": "主键"},
-            {"name": "createDate", "column": "CREATE_DATE", "type": "Date", "dbtype": "TIMESTAMP", "getset": "N",
-             "startend": "Y", "des": "创建时间"},
-            {"name": "updateDate", "column": "UPDATE_DATE", "type": "Date", "dbtype": "TIMESTAMP", "getset": "N",
-             "startend": "Y", "des": "更新时间"},
-            {"name": "deleteTag", "column": "DELETE_TAG", "type": "String", "dbtype": "VARCHAR", "getset": "N",
-             "des": "逻辑标志"},
-            {"name": "wallId", "column": "WALL_ID", "type": "long", "dbtype": "BIGINT", "getset": "Y", "des": "所属活动ID"},
-            {"name": "actType", "column": "ACT_TYPE", "type": "String", "dbtype": "VARCHAR", "getset": "Y",
-             "des": "活动类型"},
-            {"name": "keyWord", "column": "KEY_WORD", "type": "String", "dbtype": "VARCHAR", "getset": "Y",
-             "des": "关键词"}]}
+    jsonStr = {"package":"com.hi.webapp.hipro.user","module":"user","name":"ProUserWallwxusertrade","uri":"/pro/hxc/prouserwallwxusertrade","des":"关键词表","table":"PRO_KEYWORD1","fieldList":[{"name":"id","column":"ID","type":"long","dbtype":"BIGINT","getset":"N","startend":"N","des":"主键"},{"name":"createDate","column":"CREATE_DATE","type":"Date","dbtype":"TIMESTAMP","getset":"N","startend":"Y","des":"创建时间"},{"name":"updateDate","column":"UPDATE_DATE","type":"Date","dbtype":"TIMESTAMP","getset":"N","startend":"Y","des":"更新时间"},{"name":"deleteTag","column":"DELETE_TAG","type":"String","dbtype":"VARCHAR","getset":"N","des":"逻辑标志"},{"name":"wallId","column":"WALL_ID","type":"long","dbtype":"BIGINT","getset":"Y","des":"所属活动ID"},{"name":"userId","column":"USER_ID","type":"long","dbtype":"BIGINT","getset":"Y","des":"用户ID"},{"name":"changeType","column":"CHANGE_TYPE","type":"String","dbtype":"VARCHAR","getset":"Y","des":"变化类型"},{"name":"changeNumber","column":"CHANGE_NUMBER","type":"long","dbtype":"BIGINT","getset":"Y","des":"变化数量"}]}
     pre(jsonStr)
