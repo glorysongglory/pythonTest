@@ -39,7 +39,7 @@
         </trim>
         <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
          {% for field in fieldList  %}
-            {% raw %}#{ {% endraw %} {{field.name}},jdbcType={{field.column}} {% raw %} }{% endraw %},
+            {% raw %}#{ {% endraw %} {{field.name}},jdbcType={{field.dbtype}} {% raw %} }{% endraw %},
          {% endfor %}
         </trim>
     </insert>
