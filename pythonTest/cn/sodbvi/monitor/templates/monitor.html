@@ -1,0 +1,94 @@
+{% if session.logged_in %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weui</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='demo.css') }}">
+</head>
+  <body ontouchstart>
+  <div class="weui-tab">
+  <div class="weui-tab__bd">
+    <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+        <header class="demos-header">
+      <h1 class="demos-title">分布图</h1>
+    </header>
+      <div class="weui-grids">
+  <a href="javascript:;" class="weui-grid js_grid" id="test-pro">
+    <div class="weui-grid__icon">
+      <img src="{{ url_for('static', filename='images/icon_nav_button.png') }}" alt="">
+    </div>
+    <p class="weui-grid__label">
+      pro
+    </p>
+  </a>
+  <a href="" class="weui-grid js_grid">
+    <div class="weui-grid__icon">
+      <img src="{{ url_for('static', filename='images/icon_nav_cell.png') }}" alt="">
+    </div>
+    <p class="weui-grid__label">
+      redis
+    </p>
+  </a>
+</div>
+    </div>
+    <div id="tab2" class="weui-tab__bd-item">
+      <h1>页面二</h1>
+    </div>
+       <div id="tab3" class="weui-tab__bd-item">
+      <h1>页面三</h1>
+    </div>
+       <div id="tab4" class="weui-tab__bd-item">
+      <h1>页面四</h1>
+    </div>
+  </div>
+
+      <div class="weui-tabbar">
+    <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+      <div class="weui-tabbar__icon">
+        <img src=" {{ url_for('static', filename='images/icon_nav_button.png') }}" alt="">
+      </div>
+      <p class="weui-tabbar__label">测试</p>
+    </a>
+    <a href="#tab2" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="{{ url_for('static', filename='images/icon_nav_msg.png') }}" alt="">
+      </div>
+      <p class="weui-tabbar__label">服务</p>
+    </a>
+    <a href="#tab3" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="{{ url_for('static', filename='images/icon_nav_article.png') }}" alt="">
+      </div>
+      <p class="weui-tabbar__label">发现</p>
+    </a>
+    <a href="#tab4" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="{{ url_for('static', filename='images/icon_nav_cell.png') }}" alt="">
+      </div>
+      <p class="weui-tabbar__label">我</p>
+    </a>
+  </div>
+</div>
+
+  </div>
+
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+    <script>
+      $(document).on("click", "#test-pro", function() {
+       $.confirm("确定要发布?", function(text) {
+        $.post('{{ url_for('test') }}',JSON.stringify({'node':'pro'}),function () {
+              $.toast("操作成功");
+           });
+    }, function() {
+    });
+      });
+    </script>
+</body>
+</html>
+{% endif %}
