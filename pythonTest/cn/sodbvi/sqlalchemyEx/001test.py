@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 import randint
 
-engine = create_engine("mysql+pymysql://root:[gy~7QFB@123.207.178.189/test1", encoding='utf-8', echo=True)
+engine = create_engine("mysql+pymysql://root:[gy~7QFB@127.0.0.1/test1", encoding='utf-8', echo=True)
 # 基类
 Base = declarative_base()
 
